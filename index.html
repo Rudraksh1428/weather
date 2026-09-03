@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="weather-card">
+      <div class="search-box">
+        <div class="input-box">
+          <span>⌖</span>
+          <input type="text" id="cityInput" placeholder="Enter city" />
+        </div>
+
+        <button id="searchBtn">⌕</button>
+      </div>
+
+      <div class="weather-main">
+        <div class="temperature">
+          <span id="temperature">22</span>
+          <span class="degree">°C</span>
+        </div>
+
+        <h2 id="city">Bengaluru</h2>
+
+        <p class="condition">
+          <span id="condition">CLEAR SKY</span>
+        </p>
+
+        <p class="location">
+          Karnataka, India • Feels like <span id="feelsLike">23°C</span>
+        </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="details">
+        <div class="detail-box">
+          <div class="detail-icon">≋</div>
+
+          <div>
+            <p>HUMIDITY</p>
+            <h3 id="humidity">53%</h3>
+            <span class="status">Optimal</span>
+          </div>
+        </div>
+
+        <div class="detail-box">
+          <div class="detail-icon">≋</div>
+
+          <div>
+            <p>WIND SPEED</p>
+            <h3 id="wind">5.66 <small>km/h</small></h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-info">
+        <p>
+          Air Quality:
+          <span>38 AQI (Good)</span>
+        </p>
+
+        <p>
+          UV Index:
+          <strong>4 Moderate</strong>
+        </p>
+
+        <p class="updated">Updated 2m ago</p>
+      </div>
+    </div>
+  </body>
+</html>
