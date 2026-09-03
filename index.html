@@ -24,15 +24,13 @@
           <span class="degree">°C</span>
         </div>
 
-        <h2 id="city">Bengaluru</h2>
+        <h2 id="city">CITY</h2>
 
         <p class="condition">
           <span id="condition">CLEAR SKY</span>
         </p>
 
-        <p class="location">
-          Karnataka, India • Feels like <span id="feelsLike">23°C</span>
-        </p>
+        <p class="location">• Feels like <span id="feelsLike">23°C</span></p>
       </div>
 
       <div class="divider"></div>
@@ -72,5 +70,38 @@
         <p class="updated">Updated 2m ago</p>
       </div>
     </div>
+    <script>
+      const apiKey = "921abdb38685cd2a8b9d01cdf1b8e4f1";
+      const cityInput = document.querySelector("#cityInput");
+      const searchBtn = document.querySelector("#searchBtn");
+      async function weatherIndicator() {
+        const city = cityInput.value;
+        const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        let response = await fetch(apiURL);
+        const data = await response.json();
+        console.log(data);
+        document.getElementById("temperature").textContent = Math.round(
+          data.main.temp,
+        );
+        document.getElementById("city").textContent = data.name;
+        document.getElementById("condition").textContent =
+          data.weather[0].description;
+        document.getElementById("feelsLike").textContent =
+          Math.round(data.main.feels_like) + "°C";
+        document.getElementById("humidity").textContent =
+          data.main.humidity + "%";
+        document.getElementById("wind").innerHTML =
+          `${(data.wind.speed * 3.6).toFixed(2)} <small>km/h</small>`;
+        cityInput.value = "";
+      }
+
+      searchBtn.addEventListener("click", weatherIndicator);
+
+      cityInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          weatherIndicator();
+        }
+      });
+    </script>
   </body>
 </html>
